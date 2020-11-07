@@ -24,22 +24,14 @@ foreach ($imageFile in $dir)
 	$aspectRatio 	= $imageWidth / $imageHeight;
 	$image.Dispose()
 
-	if ($imageHeight -eq 0 -Or $imageWidth -eq 0) {continue}
-
-	if ($aspectRatio -gt 1.70)
-		{move $imageFile './1609'}
-
-	elseif ($aspectRatio -ge 1.55 -And $aspectRatio -le 1.7)
-		{move $imageFile './1610'}
-
-	elseif ($aspectRatio -ge 1.3 -And $aspectRatio -le 1.54)
-		{move $imageFile './43'}
-	elseif ($aspectRatio -ge 1.0 -And $aspectRatio -le 1.25)
-		{move $imageFile './square'}
-	elseif ($aspectRatio -lt 1.0)
-		{move $imageFile './portrait'}
-	else 
-		{move $imageFile './alien'}
-
+	switch($aspectRatio)
+	{
+		{$aspectRatio -gt 1.7  -And $aspectRatio -lt 2.5}	{move $imageFile '1609'}
+		{$aspectRatio -ge 1.55 -And $aspectRatio -le 1.7}	{move $imageFile '1610'}
+		{$aspectRatio -ge 1.3  -And $aspectRatio -le 1.54}	{move $imageFile './43'}
+		{$aspectRatio -ge 1.0  -And $aspectRatio -le 1.25}	{move $imageFile './square'}
+		{$aspectRatio -lt 1.0}								{move $imageFile './portrait'}
+		default 											{move $imageFile './alien'}
+	}
 
 }
