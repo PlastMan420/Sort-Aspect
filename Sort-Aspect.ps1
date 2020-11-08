@@ -9,6 +9,7 @@ Import-Module PSCoreWindowsCompat
 $dir = get-childitem -path $path\* -include ('*.png', '*.jpg', '*.jpeg', '*.avif', '*.heic', '*.webp')
 
 if ( -not (Test-path '0403'			-PathType Container)) {mkdir '0403'}
+if ( -not (Test-path '1043'			-PathType Container)) {mkdir '1043'}
 if ( -not (Test-path '1409'			-PathType Container)) {mkdir '1409'}
 if ( -not (Test-path '1609'			-PathType Container)) {mkdir '1609'}
 if ( -not (Test-path '1610'			-PathType Container)) {mkdir '1610'}
@@ -30,8 +31,9 @@ foreach ($imageFile in $dir)
 
 	switch($aspectRatio)
 	{
-		{$aspectRatio -ge 1.0  -And $aspectRatio -lt 1.2}	{move $imageFile 'square'}
+		{$aspectRatio -ge 1.0  -And $aspectRatio -lt 1.1}	{move $imageFile 'square'}
 		{$aspectRatio -ge 1.3  -And $aspectRatio -lt 1.4}	{move $imageFile '0403'}
+		{$aspectRatio -ge 1.4  -And $aspectRatio -lt 1.5}	{move $imageFile '1043'}
 		{$aspectRatio -ge 1.5  -And $aspectRatio -lt 1.6}	{move $imageFile '1409'}
 		{$aspectRatio -ge 1.6  -And $aspectRatio -lt 1.7}	{move $imageFile '1610'}
 		{$aspectRatio -ge 1.7  -And $aspectRatio -lt 1.8}	{move $imageFile '1609'}
