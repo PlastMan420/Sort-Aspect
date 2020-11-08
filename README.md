@@ -1,6 +1,5 @@
 # Sort-Aspect
 A simple PowerShell script that sorts images (wallpaper) by their aspect ratio (or by what their aspect ratio would fit on). 
-
 It might not be the best, but it does its thing.
 
 It works by creating a couple of folder in the directory where it runs `43`, `1609`, `1610`, `portrait`, `square` and `alien`.
