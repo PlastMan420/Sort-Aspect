@@ -6,7 +6,7 @@ Param
 Import-Module PSCoreWindowsCompat
 [void][System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")
 
-if ($path -eq $null){$path = Get-Location}
+if (!$path){$path = Get-Location}
 $dir = get-childitem -path $path\* -include ('*.png', '*.jpg', '*.jpeg', '*.avif', '*.heic', '*.webp')
 
 if ( -not (Test-path '0403'		-PathType Container)) {mkdir '0403'}
