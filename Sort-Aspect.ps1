@@ -3,6 +3,8 @@ Param
 	[string]$path
 )
 
+Install-Module PSCoreWindowsCompat -Scope CurrentUser
+
 Import-Module PSCoreWindowsCompat
 [void][System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")
 
